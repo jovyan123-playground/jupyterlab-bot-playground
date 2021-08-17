@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """Github Worflows API."""
-
 # Third party imports
 import requests
 
@@ -10,6 +9,7 @@ class Workflows:
     PyGithub does not yet provide handling workflows and runs so this small
     class will take care of those endpoints in the meantime.
     """
+
     _HEADERS = {
         "Content-Type": "application/json",
         "User-Agent": "Github Python Client",
@@ -55,9 +55,7 @@ class Workflows:
 
     # --- Workflows API
     # ------------------------------------------------------------------------
-    def get_repo_workflow_runs(
-        self, full_name, branch=None, event=None, status=None
-    ):
+    def get_repo_workflow_runs(self, full_name, branch=None, event=None, status=None):
         """
         List repository workflow runs.
 
@@ -116,7 +114,9 @@ class Workflows:
         )
         workflow_ids = set()
         repo_workflow_runs = self.get_repo_workflow_runs(
-            full_name, branch=branch, event=event_type,
+            full_name,
+            branch=branch,
+            event=event_type,
         )["workflow_runs"]
 
         status = ["queued", "in_progress"]
@@ -126,7 +126,10 @@ class Workflows:
 
         for workflow_id in workflow_ids:
             workflow_runs = self.get_workflow_runs(
-                full_name, workflow_id, branch=branch, event=event_type,
+                full_name,
+                workflow_id,
+                branch=branch,
+                event=event_type,
             )
             run_ids = [
                 run["id"]
