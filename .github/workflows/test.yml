@@ -82,6 +82,8 @@ jobs:
 
       - name: Run the App
         run: |
+          set -eux
+
           python run.py &
           TASK_PID=$!
           # Make sure the task is running
@@ -89,11 +91,15 @@ jobs:
           sleep 5
           kill $TASK_PID
           wait $TASK_PID
+          echo "Finished"
 
   docker:
     name: Docker Build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Build Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
