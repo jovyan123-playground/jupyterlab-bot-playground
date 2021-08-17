@@ -148,4 +148,6 @@ class Workflows:
 
             print("\n")
 
-        print(f'123 Finished canceling duplicate "{event_type}" builds\n')
+        print(
+            f'Finished canceling duplicate "{event_type}" builds for "{full_name}" and branch "{branch}"...\n'
+        )

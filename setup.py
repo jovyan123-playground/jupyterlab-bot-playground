@@ -45,7 +45,7 @@ setup(
     long_description=get_description(),
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[],
+    install_requires=["pygithub", "tornado"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
