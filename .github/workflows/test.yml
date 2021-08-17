@@ -9,9 +9,6 @@ jobs:
   pre-commit:
     name: Run pre-commit hook
 
-    needs: check_duplicate_runs
-    if: ${{ needs.check_duplicate_runs.outputs.should_skip != 'true' }}
-
     runs-on: ubuntu-latest
     timeout-minutes: 2
 
