@@ -90,8 +90,6 @@ jobs:
           ps -p $TASK_PID || exit 1
           sleep 5
           kill $TASK_PID
-          wait $TASK_PID
-          echo "Finished"
 
   docker:
     name: Docker Build
